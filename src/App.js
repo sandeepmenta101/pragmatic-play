@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Suspense, lazy } from "react";
 
-function App() {
+import ScoreBoard from "./components/ScoreBoard";
+import Card from "./components/Card";
+import useGameContext from "./reducers/GameContext";
+
+const Dice = lazy(() => import("./components/Dice"));
+const Congratulations = lazy(() => import("./components/Congratulations"));
+
+export default function App() {
+  const { isTimerDone, totalAmount } = useGameContext();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {totalAmount <= 0 ? (
+        <h1 className="error-message">
+          Your credit {totalAmount < 0 ? "is less than $0" : "is $0"}. Please
+          recharge.
+        </h1>
+      ) : (
+        <>
+          <ScoreBoard />
+          <Card />
+          {isTimerDone && (
+            <>
+              <Suspense fallback="Loading...">
+                <Dice />
+              </Suspense>
+              <Suspense>
+                <Congratulations />
+              </Suspense>
+            </>
+          )}
+        </>
+      )}
     </div>
   );
 }
-
-export default App;

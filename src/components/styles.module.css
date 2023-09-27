@@ -1,0 +1,122 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10px auto;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card {
+    border: 1px solid var(--card-border-color);
+    margin: 8px;
+    padding: 1.5rem 0.6rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  .card h2 {
+    font-size: 2.6rem;
+  }
+  .card:hover {
+    box-shadow: 5px 5px var(--box-shadow-color);
+  }
+  .card:disabled:hover {
+    box-shadow: 0;
+  }
+  .active {
+    background-color: var(--blue-background-color);
+    color: #fff;
+    box-shadow: 5px 5px var(--box-shadow-color);
+  }
+  
+  .card input {
+    outline: none;
+    height: 1.5rem;
+  }
+  
+  .unClickable {
+    opacity: 0.6;
+    box-shadow: 0;
+    cursor: initial;
+  }
+  .clickable {
+    opacity: 1;
+    cursor: pointer;
+    transition: box-shadow 0.5s ease;
+  }
+  .dice {
+    border: 1px solid var(--black-color);
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 8px;
+    margin: 30px auto 0;
+  }
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modalContent {
+    background-color: var(--white-font-color);
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--blue-background-color);
+    padding: 0 10px;
+  }
+  .header h1,
+  .header p {
+    color: var(--white-font-color);
+  }
+  .header div {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+  }
+  .modalContent h2 {
+    text-align: center;
+  }
+  .red {
+    color: var(--danger-font-color);
+  }
+  .green {
+    color: var(--success-font-color);
+  }
+  .header div button {
+    cursor: pointer;
+    color: var(--white-font-color);
+    border: 0;
+    outline: 0;
+    padding: 1rem;
+    margin-right: 0.2rem;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+    background-color: var(--orange-color);
+    font-weight: 700;
+  }
+  .header div button:hover {
+    color: var(--orange-color);
+    background-color: var(--white-font-color);
+    border: 1px solid var(----orange-color);
+  }
+  
