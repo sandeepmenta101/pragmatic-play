@@ -27,7 +27,7 @@ export default function App() {
               <Suspense fallback="Loading...">
                 <Dice />
               </Suspense>
-              <Suspense>
+              <Suspense fallback="Loading...">
                 <Congratulations />
               </Suspense>
             </>
